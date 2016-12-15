@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    {% block head %}
+		<link rel="stylesheet" href="{{url_for("static",filename="style.css")}}?q={{cache_bust}}">
+        <title>{% block title %}{% endblock %} - Image Carousel</title>
+    {% endblock head %}
+	<body onKeyDown="onPress(event);">
+        <div id="navbar">
+            <form >
+                <input id="expand" type="search">
+                <input type="checkbox" id="cycleCheck" value="Slideshow">
+                <input type="number" onclick="cycle();" id="cycleTime" value="5">
+            </form>
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

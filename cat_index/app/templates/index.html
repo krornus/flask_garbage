@@ -1,0 +1,14 @@
+{% extends "shared.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<form action="{{url_for("add")}}" method="post">
+  {{form.url(placeholder="Enter Item...")}}
+</form>
+<center>
+{% for item in items %}
+ 	<div class="fb-video" data-href="{{item[0]}}" data-autoplay="true" data-width="500">
+	  <div class="fb-xfbml-parse-ignore"></div>
+  </div>
+{% endfor %}
+</center>
+{% endblock %}

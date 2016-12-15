@@ -1,0 +1,15 @@
+{% extends "shared.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+    <a class="header-link" href="{{url.url}}">{{url.sr}} - {{url.time}} - {{url.sort}} - {{url.query}}</a>
+    <center>
+    {% for element in iframes %}
+        <video class="slide" autoplay="" loop="" muted=""><source type="video/webm" src="{{element}}"><source type="video/mp4" src="{{element}}"></video>
+    {% endfor %}
+    {% for element in images %}
+        <img class="slide" src="{{ element }}"/>
+    {% endfor %}
+    </center>
+    <script type="text/javascript" src="{{url_for("static",filename="carousel.js")}}"></script>
+    {% if not not rand %}<script>showSlides();</script>{% endif %}
+{% endblock %}
